@@ -141,15 +141,12 @@ function insert_rec( value, data )  {
 
 const data = [ 3, 2, 5, 1, 4 ];
 
-// const M = new Matrix( data.length + 1, data.length );
-const matrixView = new MatrixView( document.querySelector( '#matrix' ) );
-console.log( 'before first call to renderHTML' );
-// matrixView.renderHTML();
-console.log( 'after first call to renderHTML' );
+const inputView = new MatrixView( document.querySelector( '#input-data' ) );
+inputView.addRow( data );
 
+const matrixView = new MatrixView( document.querySelector( '#matrix' ) );
 
 n2sort( data, matrixView );
 
-// output.innerHTML = `data = ${data}`;
 
 
