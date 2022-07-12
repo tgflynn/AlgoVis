@@ -15,17 +15,17 @@ body  {
     height: 100vh;
     width: 100vw;
     /* overflow: hidden; */
-    display: grid;
-    grid-template-areas: 
-    'header header'
-    'controls main'
-    'footer footer';
-    grid-template-columns: 20fr 80fr;
-    grid-template-rows: 10fr 85fr 5fr;
-    grid-gap: 0;
+    /* display: grid; */
+    /* grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+    grid-template-columns: 100fr;
+    grid-template-rows: 100fr;
+    grid-gap: 0; */
 }
 
-header  {
+#main-header  {
     background: cyan;
     /* height: 20px; */
     
@@ -39,21 +39,33 @@ header h1  {
     vertical-align: middle;
 }
 
+#description-header h2  {
+    margin: 5% 5%;
+    font-size: 20px;
+    text-align: center;
+}
+
 #side-panel  {
     display: flex;
     flex-direction: column;
     background: blue;
-    grid-area: controls;
+    grid-area: description;
 }
 
-#controls  {
-    flex-grow: 0;
+#description  {
+    margin: 1% 1%;
+    background: rgb(141, 125, 185);
+    /* flex-grow: 0;
     background: blue;
     display: grid;
     grid-template-columns: repeat( 3, 1fr );
     /* justify-items: start; */
-    grid-gap: 2px;
-    margin-bottom: 1vh;
+    /* grid-gap: 2px; */
+    /* margin-bottom: 1vh; */ */
+}
+
+#description p  {
+    margin: 2% 2%;
 }
 
 .button  {
@@ -70,7 +82,7 @@ header h1  {
 
 main  {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background: white;
     grid-area: main;
 }
