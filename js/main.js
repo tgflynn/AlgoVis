@@ -132,12 +132,15 @@ function addPermView( data, view )  {
     view.renderHTML();
 }
 
-/*
-    Assumes data is sorted.
-*/
-function insert_rec( value, data )  {
-
-
+function displayCode( codeLines, container )  {
+    console.log( 'container = ', container );
+    const list = document.createElement( 'ol' );
+    for( let i = 0; i < codeLines.length; ++i )  {
+        const li = document.createElement( 'li' );
+        li.appendChild( document.createTextNode( codeLines[i]) );
+        list.appendChild( li );
+    }
+    container.appendChild( list );
 }
 
 // const output = document.querySelector( '#output' );
@@ -147,6 +150,19 @@ function insert_rec( value, data )  {
 //view.renderHTML();
 
 
+const BASE_URL = window.location.href;
+const CODE_URL = `${BASE_URL}/js/n2sort.js`;
+
+fetch( CODE_URL )
+.then( (response) => {
+    return response.text();
+})
+.then( (code) =>  {
+    // console.log( 'code = ', code );
+    const lines  = code.split( '\n' );
+    displayCode( lines, document.querySelector( '#code-container' ) );
+    console.log( 'lines = ', lines );
+});
 
 const data = [ 3, 2, 5, 1, 4 ];
 

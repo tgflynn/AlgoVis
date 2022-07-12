@@ -152,3 +152,17 @@ table  {
 
 }
 
+code  {
+    margin-left: 5vw;
+    /* white-space: pre;; */
+}
+
+code li  {
+    white-space: pre;
+}
+
+code ol {
+    margin-left: 5vw;
+    list-style-type:decimal;
+}
+
