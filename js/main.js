@@ -65,9 +65,14 @@ class Matrix  {
 
 class MatrixView  {
 
-    constructor( container, M )  {
+    constructor( container )  {
         this.container = container;
-        this.M = M;
+        this.rows = [];
+    }
+
+    addRow( row )  {
+        this.rows.push( row.slice() );
+        this.renderHTML();
     }
 
     renderHTML()  {
@@ -82,11 +87,11 @@ class MatrixView  {
         //     console.log( 'MatrixView.renderHTML failed to remove table' );
         // }
         const table = document.createElement( 'table' );
-        for( let i = 0; i < this.M.nrows; ++i )  {
+        for( let row of this.rows )  {
             const tr = document.createElement( 'tr' );
-            for( let j = 0; j < this.M.ncolumns; ++j )  {
+            for( let e of row )  {
                 const td = document.createElement( 'td' );
-                td.appendChild( document.createTextNode( this.M.get( i,j ) ) );
+                td.appendChild( document.createTextNode( e ) );
                 tr.appendChild( td );
             }
             table.appendChild( tr );
@@ -126,7 +131,7 @@ function insert_rec( value, data )  {
 
 }
 
-const output = document.querySelector( '#output' );
+// const output = document.querySelector( '#output' );
 //const M = new Matrix( 3, 3, [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] );
 //const M = new Matrix( 5, 5, [ 3, 2, 5, 1, 4 ] );
 //const view = new MatrixView( document.querySelector( '#matrix' ), M );
@@ -136,15 +141,15 @@ const output = document.querySelector( '#output' );
 
 const data = [ 3, 2, 5, 1, 4 ];
 
-const M = new Matrix( data.length + 1, data.length );
-const matrixView = new MatrixView( document.querySelector( '#matrix' ), M );
+// const M = new Matrix( data.length + 1, data.length );
+const matrixView = new MatrixView( document.querySelector( '#matrix' ) );
 console.log( 'before first call to renderHTML' );
-matrixView.renderHTML();
+// matrixView.renderHTML();
 console.log( 'after first call to renderHTML' );
 
 
 n2sort( data, matrixView );
 
-output.innerHTML = `data = ${data}`;
+// output.innerHTML = `data = ${data}`;
 
 
