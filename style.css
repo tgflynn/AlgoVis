@@ -55,6 +55,7 @@ header h1  {
 #description  {
     margin: 1% 1%;
     background: rgb(141, 125, 185);
+    width: 50%;
     /* flex-grow: 0;
     background: blue;
     display: grid;
@@ -66,6 +67,14 @@ header h1  {
 
 #description p  {
     margin: 2% 2%;
+}
+
+#visuals  {
+    margin: 0 auto;
+}
+
+#visuals h2  {
+    text-align: center;
 }
 
 .button  {
