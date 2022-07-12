@@ -136,6 +136,10 @@ table  {
     padding: 2vh;
 }
 
+.row-label  {
+    width: 8vw;
+}
+
 #output  {
     height: 20vh;
     width: 40vw;

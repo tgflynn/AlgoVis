@@ -6,6 +6,6 @@ function n2sort( data, view )  {
                 swap( data, i, j );
             }
         }
-        view.addRow( data );
+        view.addRow( data, `Step ${i + 1}` );
     }
 }

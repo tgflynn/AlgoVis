@@ -68,10 +68,12 @@ class MatrixView  {
     constructor( container )  {
         this.container = container;
         this.rows = [];
+        this.rowLabels = [];
     }
 
-    addRow( row )  {
+    addRow( row, rowLabel = '' )  {
         this.rows.push( row.slice() );
+        this.rowLabels.push( rowLabel );
         this.renderHTML();
     }
 
@@ -87,8 +89,15 @@ class MatrixView  {
         //     console.log( 'MatrixView.renderHTML failed to remove table' );
         // }
         const table = document.createElement( 'table' );
-        for( let row of this.rows )  {
+        const nrows = this.rows.length;
+        for( let i = 0; i< nrows; ++i )  {
+            const row = this.rows[i];
+            const rowLabel = this.rowLabels[i];
             const tr = document.createElement( 'tr' );
+            const label_td = document.createElement( 'td' );
+            label_td.setAttribute( 'class', 'row-label' );
+            label_td.appendChild( document.createTextNode( `${rowLabel}` ) );
+            tr.appendChild( label_td );
             for( let e of row )  {
                 const td = document.createElement( 'td' );
                 td.appendChild( document.createTextNode( e ) );
@@ -142,7 +151,7 @@ function insert_rec( value, data )  {
 const data = [ 3, 2, 5, 1, 4 ];
 
 const inputView = new MatrixView( document.querySelector( '#input-data' ) );
-inputView.addRow( data );
+inputView.addRow( data, 'Input Data' );
 
 const matrixView = new MatrixView( document.querySelector( '#matrix' ) );
 
