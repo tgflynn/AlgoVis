@@ -100,12 +100,8 @@ footer  {
     background: lightgreen;
     /* min-height: 20px;; */
 
-    text-align: left;
+    text-align: center;
     grid-area: footer;
-}
-
-#status  {
-    width: 50%;
 }
 
 canvas {
