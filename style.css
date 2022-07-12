@@ -112,17 +112,17 @@ table  {
     table-layout: fixed;
 }
 
-#matrix tr  {
+#matrix tr,#input-data tr  {
     height: 7vh;
 }
 
-#matrix  {
+#matrix,#input-data  {
     width: fit-content;
     height: fit-content;
     margin: 5vh auto;
 }
 
-#matrix td  {
+#matrix td,#input-data td  {
     border: 1px solid black;
     padding: 2vh;
 }
