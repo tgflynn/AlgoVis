@@ -38,15 +38,10 @@ class MatrixView  {
 
     renderHTML()  {
         const old = this.container.querySelector( 'table' );
-        // console.log( 'MatrixView.renderHTML: old = ', old );
         if( old != null )  {
-            // console.log( 'MatrixView.renderHTML removing old table' );
             old.remove();
         }
-        // const gone = this.container.querySelector( 'table' );
-        // if( gone != null )  {
-        //     console.log( 'MatrixView.renderHTML failed to remove table' );
-        // }
+    
         const table = document.createElement( 'table' );
         const nrows = this.rows.length;
         for( let i = 0; i< nrows; ++i )  {
@@ -67,17 +62,6 @@ class MatrixView  {
         this.container.appendChild( table );
     }
 
-}
-
-class Sorter  {
-
-    constructor( data )  {
-        this.data = data;
-    }
-
-    sort()  {
-        console.log( "Sorter.sort called" );
-    }
 }
 
 function swap( data, i, j )  {
@@ -159,13 +143,6 @@ function initSort()  {
     STEP = 0;
 }
 
-// const output = document.querySelector( '#output' );
-//const M = new Matrix( 3, 3, [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] );
-//const M = new Matrix( 5, 5, [ 3, 2, 5, 1, 4 ] );
-//const view = new MatrixView( document.querySelector( '#matrix' ), M );
-//view.renderHTML();
-
-
 const BASE_URL = window.location.href;
 const CODE_URL = `${BASE_URL}/js/n2sort.js`;
 
@@ -174,10 +151,8 @@ fetch( CODE_URL )
     return response.text();
 })
 .then( (code) =>  {
-    // console.log( 'code = ', code );
     const lines  = code.split( '\n' );
     displayCode( lines, document.querySelector( '#code-container' ) );
-    // console.log( 'lines = ', lines );
 });
 
 const N = 5;
@@ -189,8 +164,6 @@ INPUT_VIEW.addRow( DATA, 'Input Data' );
 
 const MATRIX_VIEW = new MatrixView( document.querySelector( '#matrix' ), true );
 
-// n2sort( data, matrixView );
-// initSort();
 
 
 
