@@ -14,15 +14,6 @@ html  {
 body  {
     height: 100vh;
     width: 100vw;
-    /* overflow: hidden; */
-    /* display: grid; */
-    /* grid-template-areas: 
-    'header'
-    'main'
-    'footer';
-    grid-template-columns: 100fr;
-    grid-template-rows: 100fr;
-    grid-gap: 0; */
 }
 
 #main-header  {
@@ -56,13 +47,6 @@ header h1  {
     margin: 1% 1%;
     background: rgb(141, 125, 185);
     width: 50%;
-    /* flex-grow: 0;
-    background: blue;
-    display: grid;
-    grid-template-columns: repeat( 3, 1fr );
-    /* justify-items: start; */
-    /* grid-gap: 2px; */
-    /* margin-bottom: 1vh; */ */
 }
 
 #description p  {
@@ -80,13 +64,6 @@ header h1  {
 .button  {
     background: gray;
     min-height: 5vh;
-    /* max-height: 15vh; */
-}
-
-#data-panel  {
-    flex-grow: 1;
-    background: rgb(180, 165, 165);
-    height: 1fr;
 }
 
 main  {
@@ -137,22 +114,9 @@ table  {
     width: 8vw;
 }
 
-#output  {
-    height: 20vh;
-    width: 40vw;
-    border: 1px solid red;
-    margin: 5vh auto;
-
-    /* margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vh; */
-
-}
-
 code  {
     margin-left: 5vw;
     font-size: smaller;
-    /* white-space: pre;; */
 }
 
 code li  {
