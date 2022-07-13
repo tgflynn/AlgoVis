@@ -162,3 +162,19 @@ code ol {
     list-style-type:decimal;
 }
 
+#button-container  {
+    margin: 2vh 2vw;
+}
+
+#button-container li  {
+    display: inline;
+}
+
+#button-container button  {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+    background:rgb(141, 125, 185);
+    padding: 1vh 1vw;
+}
+

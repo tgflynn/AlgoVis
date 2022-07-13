@@ -143,6 +143,10 @@ function displayCode( codeLines, container )  {
     container.appendChild( list );
 }
 
+function doNewData()  {
+    console.log( 'New Data button clicked' );
+}
+
 // const output = document.querySelector( '#output' );
 //const M = new Matrix( 3, 3, [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] );
 //const M = new Matrix( 5, 5, [ 3, 2, 5, 1, 4 ] );
