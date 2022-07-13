@@ -36,17 +36,13 @@ header h1  {
     text-align: center;
 }
 
-#side-panel  {
-    display: flex;
-    flex-direction: column;
-    background: blue;
-    grid-area: description;
-}
-
 #description  {
     margin: 1% 1%;
-    background: rgb(141, 125, 185);
-    width: 50%;
+    /* background: teal; */
+    background: rgb(2, 211, 211);
+    width: 60%;
+    border: 2px solid black;
+    border-radius: 2%;
 }
 
 #description p  {
@@ -54,7 +50,9 @@ header h1  {
 }
 
 #visuals  {
-    margin: 0 auto;
+    margin: 1% auto;
+    background: white;
+    border: 2px solid black;
 }
 
 #visuals h2  {
@@ -69,7 +67,7 @@ header h1  {
 main  {
     display: flex;
     flex-direction: row;
-    background: white;
+    background: rgb(196, 181, 181);
     grid-area: main;
 }
 
