@@ -168,8 +168,23 @@ function displayCode( codeLines, container )  {
     container.appendChild( list );
 }
 
+function generateRandomArray( n, minval, maxval )  {
+    console.log( `generateRandomData: n = ${n}` );
+    const arr = new Array( n );
+    arr.fill( 0 );
+    return arr.map( () => {
+        return minval + Math.floor( Math.random() * ( maxval + 1 - minval ) );
+    } );
+    // console.log( 'arr = ', arr );
+    // return arr;
+}
+
 function doNewData()  {
     console.log( 'New Data button clicked' );
+    DATA = generateRandomArray( N, 0, N ).slice();
+    INPUT_VIEW.reset();
+    INPUT_VIEW.addRow( DATA, 'Input Data' );
+    doReset();
 }
 
 function doRun() {
@@ -202,6 +217,10 @@ function doReset()  {
     initSort();
     const e = new Event( 'reset' );
     document.dispatchEvent( e );
+}
+
+function doAnimate()  {
+    
 }
 
 async function runSort( data, view )  {
@@ -240,6 +259,7 @@ fetch( CODE_URL )
     // console.log( 'lines = ', lines );
 });
 
+const N = 5;
 let STEP = 0;
 let DATA = [ 3, 2, 5, 1, 4 ];
 
