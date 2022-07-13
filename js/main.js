@@ -83,6 +83,7 @@ class MatrixView  {
                 return;
             }
             document.addEventListener( 'reset', (e) => {
+                console.log( 'received reset event' );
                 this.reset();
                 reject();
                 initSort();
@@ -173,17 +174,21 @@ function doNewData()  {
 
 function doRun() {
     initSort();
-    matrixView.useEvents = false;
-    runSort( data, matrixView );
-    // matrixView.useEvents = true;
+    MATRIX_VIEW.useEvents = false;
+    MATRIX_VIEW.reset();
+    runSort( DATA, MATRIX_VIEW );
+    STEP = DATA.length;
 }
 
 function doStep() {
     console.log( 'doStep: STEP = ', STEP );
     if( STEP === 0 )  {
         console.log( 'doStep calling runSort' );
-        runSort( data, matrixView );
+        runSort( DATA, MATRIX_VIEW );
         STEP = 1;
+        return;
+    }
+    else if( STEP === DATA.length )  {
         return;
     }
     const e = new Event( 'step' );
@@ -191,6 +196,10 @@ function doStep() {
 }
 
 function doReset()  {
+    console.log( 'doReset: useEvents = ', MATRIX_VIEW.useEvents );
+    MATRIX_VIEW.useEvents = true;
+    MATRIX_VIEW.reset();
+    initSort();
     const e = new Event( 'reset' );
     document.dispatchEvent( e );
 }
@@ -206,8 +215,8 @@ async function runSort( data, view )  {
 }
 
 function initSort()  {
+    console.log( 'initSort called' );
     STEP = 0;
-    // runSort( data, matrixView );
 }
 
 // const output = document.querySelector( '#output' );
@@ -232,12 +241,12 @@ fetch( CODE_URL )
 });
 
 let STEP = 0;
-const data = [ 3, 2, 5, 1, 4 ];
+let DATA = [ 3, 2, 5, 1, 4 ];
 
-const inputView = new MatrixView( document.querySelector( '#input-data' ) );
-inputView.addRow( data, 'Input Data' );
+const INPUT_VIEW = new MatrixView( document.querySelector( '#input-data' ) );
+INPUT_VIEW.addRow( DATA, 'Input Data' );
 
-const matrixView = new MatrixView( document.querySelector( '#matrix' ), true );
+const MATRIX_VIEW = new MatrixView( document.querySelector( '#matrix' ), true );
 
 // n2sort( data, matrixView );
 // initSort();
