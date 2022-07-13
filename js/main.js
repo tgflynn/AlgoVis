@@ -75,6 +75,11 @@ class MatrixView  {
         this.rows.push( row.slice() );
         this.rowLabels.push( rowLabel );
         this.renderHTML();
+        return new Promise( (resolve, reject) =>  {
+            document.addEventListener( 'step', (e) => {
+                resolve();
+            });
+        });
     }
 
     renderHTML()  {
@@ -145,6 +150,11 @@ function displayCode( codeLines, container )  {
 
 function doNewData()  {
     console.log( 'New Data button clicked' );
+}
+
+function doStep() {
+    const e = new Event( 'step' );
+    document.dispatchEvent( e );
 }
 
 // const output = document.querySelector( '#output' );

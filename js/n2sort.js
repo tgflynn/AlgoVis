@@ -1,4 +1,4 @@
-function n2sort( data, view )  {
+async function n2sort( data, view )  {
     const n = data.length;
     for( let i = 0; i < n; ++i )  {
         for( let j = 0; j < n; ++j )  {
@@ -6,6 +6,6 @@ function n2sort( data, view )  {
                 swap( data, i, j );
             }
         }
-        view.addRow( data, `Step ${i + 1}` );
+        await view.addRow( data, `Step ${i + 1}` );
     }
 }
