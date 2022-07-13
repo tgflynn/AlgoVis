@@ -70,11 +70,6 @@ function swap( data, i, j )  {
     data[j] = tval;
 }
 
-function addPermView( data, view )  {
-    view.M.addRow( data );
-    view.renderHTML();
-}
-
 function displayCode( codeLines, container )  {
     const list = document.createElement( 'ol' );
     for( let i = 0; i < codeLines.length; ++i )  {
