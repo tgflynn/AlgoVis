@@ -59,7 +59,6 @@ class Matrix  {
             throw new Error( 'Matrix.addRow Invalid row length' );
         }
         this.data.push( row.slice() );
-        console.log( 'Matrix.addRow data = ', this.data );
     }
 }
 
@@ -73,7 +72,6 @@ class MatrixView  {
     }
 
     addRow( row, rowLabel = '' )  {
-        console.log( 'addRow called' );
         this.rows.push( row.slice() );
         this.rowLabels.push( rowLabel );
         this.renderHTML();
@@ -83,13 +81,11 @@ class MatrixView  {
                 return;
             }
             document.addEventListener( 'reset', (e) => {
-                console.log( 'received reset event' );
                 this.reset();
                 reject();
                 initSort();
             });
             document.addEventListener( 'step', (e) => {
-                console.log( 'STEP = ', STEP );
                 ++STEP;
                 resolve();
             });
@@ -158,7 +154,6 @@ function addPermView( data, view )  {
 }
 
 function displayCode( codeLines, container )  {
-    console.log( 'container = ', container );
     const list = document.createElement( 'ol' );
     for( let i = 0; i < codeLines.length; ++i )  {
         const li = document.createElement( 'li' );
@@ -169,18 +164,14 @@ function displayCode( codeLines, container )  {
 }
 
 function generateRandomArray( n, minval, maxval )  {
-    console.log( `generateRandomData: n = ${n}` );
     const arr = new Array( n );
     arr.fill( 0 );
     return arr.map( () => {
         return minval + Math.floor( Math.random() * ( maxval + 1 - minval ) );
     } );
-    // console.log( 'arr = ', arr );
-    // return arr;
 }
 
 function doNewData()  {
-    console.log( 'New Data button clicked' );
     DATA = generateRandomArray( N, 0, N ).slice();
     INPUT_VIEW.reset();
     INPUT_VIEW.addRow( DATA, 'Input Data' );
@@ -196,9 +187,7 @@ function doRun() {
 }
 
 function doStep() {
-    console.log( 'doStep: STEP = ', STEP );
     if( STEP === 0 )  {
-        console.log( 'doStep calling runSort' );
         runSort( DATA, MATRIX_VIEW );
         STEP = 1;
         return;
@@ -211,16 +200,11 @@ function doStep() {
 }
 
 function doReset()  {
-    console.log( 'doReset: useEvents = ', MATRIX_VIEW.useEvents );
     MATRIX_VIEW.useEvents = true;
     MATRIX_VIEW.reset();
     initSort();
     const e = new Event( 'reset' );
     document.dispatchEvent( e );
-}
-
-function doAnimate()  {
-    
 }
 
 async function runSort( data, view )  {
@@ -234,7 +218,6 @@ async function runSort( data, view )  {
 }
 
 function initSort()  {
-    console.log( 'initSort called' );
     STEP = 0;
 }
 
