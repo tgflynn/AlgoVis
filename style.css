@@ -97,11 +97,12 @@ main  {
 }
 
 footer  {
-    background: lightgreen;
+    background: cyan;
     /* min-height: 20px;; */
 
     text-align: center;
     grid-area: footer;
+    font-size: medium;
 }
 
 canvas {
